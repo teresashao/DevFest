@@ -1,4 +1,4 @@
-
+import tensorflow as tf
 from transformers import RobertaTokenizerFast, TFRobertaForSequenceClassification, pipeline
 
 tokenizer = RobertaTokenizerFast.from_pretrained("arpanghoshal/EmoRoBERTa")
