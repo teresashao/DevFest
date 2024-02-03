@@ -9,6 +9,7 @@ db = mysql.connector.connect(
     #password='',
     database='JournifyDatabase'
     #Connection Name: devfest24-413221:us-central1:devfest24sql
+    #IP: 34.123.3.179 3306
 )
 cursor = connection.cursor()
 

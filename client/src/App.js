@@ -9,7 +9,7 @@ export default function App () {
     console.log('Data recieved from child: ', entry)
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     fetch("/member").then(
       res => res.json()
     ).then(
@@ -18,7 +18,7 @@ export default function App () {
         console.log( data)
       }
     )
-  }, []);
+  }, []);*/
 
   return (
     <Routes>
