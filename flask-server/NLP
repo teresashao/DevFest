@@ -1,4 +1,7 @@
+print("run")
 import tensorflow as tf
+print("hello")
+"""
 from transformers import RobertaTokenizerFast, TFRobertaForSequenceClassification, pipeline
 
 tokenizer = RobertaTokenizerFast.from_pretrained("arpanghoshal/EmoRoBERTa")
@@ -9,3 +12,4 @@ emotion = pipeline('sentiment-analysis',
 
 emotion_labels = emotion("Thanks for using it.")
 print(emotion_labels)
+"""
