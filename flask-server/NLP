@@ -14,7 +14,7 @@ emotion = pipeline('sentiment-analysis', model='arpanghoshal/EmoRoBERTa' , retur
 journal_entry = "I ate a hamburger. It was a bad burger. I then spent more money ona another burger. I feel conflicted, I like eating burgers and I enjoyed the new burger but I hate having to spend extra money. I wish I didn't have to spend extra money. After eating the burger the rest of my day was amazing. I looked at everything with a very positive attitute. I enjoyed a pleasant day after the second burger."
 
 emotion_labels = emotion(journal_entry)
-
-sorted_emotion = sorted(emotion_labels, key=lambda x: x['score'])
 print(emotion_labels)
+#sorted_emotion = sorted(emotion_labels, key=lambda x: x['score'])
+
 

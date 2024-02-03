@@ -1,12 +1,12 @@
 import React from 'react';
-import oceanImg from ''
+import oceanImg from './ocean.png'; // Replace with the correct path
 
 function Home() {
   return (
   <div>
     <header className="relative flex items-center justify-center h-screen overflow-hidden">
       <img
-        src="/ocean.png"
+        src={oceanImg}
         className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
         alt="Ocean Background"
       />
