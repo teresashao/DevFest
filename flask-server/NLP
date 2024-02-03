@@ -3,18 +3,35 @@ import tensorflow as tf
 print("hello")
 
 from transformers import RobertaTokenizerFast, TFRobertaForSequenceClassification, pipeline
-
+from transformers import logging
+logging.set_verbosity_error()
 tokenizer = RobertaTokenizerFast.from_pretrained("arpanghoshal/EmoRoBERTa")
 model = TFRobertaForSequenceClassification.from_pretrained("arpanghoshal/EmoRoBERTa")
 
 #emotion = pipeline('sentiment-analysis', 
  #                   model='arpanghoshal/EmoRoBERTa')
-emotion = pipeline('sentiment-analysis', model='arpanghoshal/EmoRoBERTa' , return_all_scores= True) 
+emotion = pipeline('sentiment-analysis', model='arpanghoshal/EmoRoBERTa' , top_k= 5) 
+
+emotion_groupings = {}
+
+emotion_groupings["anxiety"] = ["embarassment", "fear", "grief", "nervousness", "confusion"]
+emotion_groupings["anger"] = ["disgust", "anger"]
+emotion_groupings["sad"] = ["disgust", "disapproval", "embarassment", "disappointment", "sadness", "remorse", "grief"]
+emotion_groupings["happy"] = ["admiration", "pride", "joy", "amusement", "relief", "approval", "love", "optimism", "gratitude", "desire", "caring"]
+
+emotion_score = {}
+
+emotion_groupings["anxiety"] = 0
+emotion_groupings["anger"] = 0
+emotion_groupings["sad"] = 0
+emotion_groupings["happy"] = 0
 
 journal_entry = "I ate a hamburger. It was a bad burger. I then spent more money ona another burger. I feel conflicted, I like eating burgers and I enjoyed the new burger but I hate having to spend extra money. I wish I didn't have to spend extra money. After eating the burger the rest of my day was amazing. I looked at everything with a very positive attitute. I enjoyed a pleasant day after the second burger."
 
 emotion_labels = emotion(journal_entry)
+#emotion_list = emotion_labels[0]
+#sorted_emotion = sorted(emotion_list, key=lambda x: x['score'],reverse = True)
+#print(sorted_emotion)
 print(emotion_labels)
 #sorted_emotion = sorted(emotion_labels, key=lambda x: x['score'])
-
 
