@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function Journal() {
   return (
-    /*
     <div>
         <p className="text-orange-500 ">journal</p>
         <div class="container-fluid">
@@ -14,9 +13,9 @@ export default function Journal() {
                 
                 <div class="col-lg-12" style="text-align: left; padding: 0 0 0 0;">
                     <p style="text-align:left; position:absolute;">Email</p>
-                    <input type="text" id="email" name="email" style="position: relative; left: 0; top: 30px; width: 100%; height: 40px; padding: 0 0 10px 0;"><br></br><br>
+                    <input type="text" id="email" name="email" style="position: relative; left: 0; top: 30px; width: 100%; height: 40px; padding: 0 0 10px 0;">
                     <p style="padding: 15px 0 0 0;">Password</p>
-                    <input type="text" id="password" name="password" style="position: relative; left: 0; top: 0; width: 100%; height: 40px; padding: 0 0 0 0;"><br><br>
+                    <input type="text" id="password" name="password" style="position: relative; left: 0; top: 0; width: 100%; height: 40px; padding: 0 0 0 0;">
                 </div>
                 <span style="padding: 60px 0 10px 0;">
                  <button style="width: 100%; height: 40px; border-width:0; color:white; background-color: rgb(86,187,118); ">LOG IN (coming soon...)</button>
@@ -25,10 +24,9 @@ export default function Journal() {
                     <a href="https://millbay.waterquality.live/reset.html" style="color: black;">Forgot your password?</a>
                 </div>
             </center>
-        </div>
+      </div> 
         <div class="col-lg-3"></div>
         </div>
     </div>
-    */
   );
 }
