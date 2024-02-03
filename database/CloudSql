@@ -1,23 +1,42 @@
 from flask import Flask, jsonify
 import mysql.connector
+from database_utils import insert_data, eval_sentiment
 
 app = Flask(__name__)
 
 db = mysql.connector.connect(
-    host='34.123.3.179',
-    user='your-database-username',
+    host='devfest24-413221:us-central1:devfest24sql',
+    user='dbuserdbuser',
     #password='',
-    database='your-database-name'
+    database='JournifyDatabase'
     #Connection Name: devfest24-413221:us-central1:devfest24sql
 )
 
 @app.route('/api/data', methods=['GET'])
-def get_data():
-    cursor = db.cursor()
-    cursor.execute('SELECT * FROM your_table')
-    data = cursor.fetchall()
-    cursor.close()
-    return jsonify(data)
+def add_data():
+    try:
+        # Assume you receive data in JSON format with a journal entry
+        data = request.json
+        journal_entry = data.get('journal_entry', '')
+        
+        # Evaluate sentiment for the journal entry
+        sentiment_result = eval_sentiment(journal_entry)
+
+        # Insert both the journal entry and sentiment result into the database
+        if insert_data(journal_entry, sentiment_result):
+            return jsonify({'message': 'Data added successfully'})
+        else:
+            return jsonify({'error': 'Failed to add data'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+
+    def __repr__(self):
+        return f'<User {self.username}>'
 
 if __name__ == '__main__':
     app.run(debug=True)

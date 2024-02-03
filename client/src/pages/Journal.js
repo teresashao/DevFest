@@ -9,9 +9,9 @@ export default function Journal({sendDataToParent}) {
     <div>
       <div className="relative min-h-screen flex items-center justify-center overflow-auto">
         <img src="/ocean.jpeg" className="fixed top-0 left-0 w-full h-full z-[-1]" alt="background" />
-        <div className="relative p-5 text-2xl text-white w-1/2 min-h-screen items-center justify-center">
+        <div className="relative p-5 text-2xl text-white w-1/2 min-h-screen justify-center">
           <Entry sendDataToParent={sendDataToParent}/>
-          <Results />
+          
         </div>
       </div>
     </div>

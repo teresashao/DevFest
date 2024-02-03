@@ -7,7 +7,7 @@ from flask import Flask, request, jsonify
 logging.set_verbosity_error()
 
 app = Flask(__name__)
-@app.route('/', methods=['POST'])
+@app.route('/api/data', methods=['POST'])
 
 def receive_journal():
     data = request.get_json()
