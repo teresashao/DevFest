@@ -4,7 +4,14 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        righteous: ['Righteous', "sans-serif"],
+        mont: ['Montserrat', "sans-serif"]
+      
+      }
+    },
   },
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   plugins: [],
 }
