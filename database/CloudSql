@@ -1,0 +1,23 @@
+from flask import Flask, jsonify
+import mysql.connector
+
+app = Flask(__name__)
+
+db = mysql.connector.connect(
+    host='34.123.3.179',
+    user='your-database-username',
+    #password='',
+    database='your-database-name'
+    #Connection Name: devfest24-413221:us-central1:devfest24sql
+)
+
+@app.route('/api/data', methods=['GET'])
+def get_data():
+    cursor = db.cursor()
+    cursor.execute('SELECT * FROM your_table')
+    data = cursor.fetchall()
+    cursor.close()
+    return jsonify(data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
