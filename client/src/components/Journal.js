@@ -4,6 +4,9 @@ export default function Journal() {
   return (
     <div>
         <p className="text-orange-500 ">journal</p>
+        <div>
+          
+        </div>
     </div>
     
   );
