@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Home() {
+function Home({data}) {
   return (
   <div>
     <header className="relative flex items-center justify-center h-screen overflow-hidden">
@@ -27,6 +27,7 @@ function Home() {
           <Link to="/journal"> {/* Replace '/your-link-path' with your actual path */} 
             <button className="text-3xl font-mont relative z-20 mt-20 text-center bg-slate-100 text-slate-500 rounded-lg py-3 px-7 transform transition-transform duration-300 hover:hover:drop-shadow-xl hover:scale-105">Write</button>
           </Link>
+          <p>{`data: ${data}`}</p>
         </div>
       </div>
     </header>

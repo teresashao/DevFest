@@ -42,6 +42,8 @@ for emotion in emotion_labels:
 
 # this enhanced for loop populates the emotion_score dict with scores based on the score of each returned emotion from the roberta
 
+
+
 #emotion_list = emotion_labels[0]
 #sorted_emotion = sorted(emotion_list, key=lambda x: x['score'],reverse = True)
 #print(sorted_emotion)
