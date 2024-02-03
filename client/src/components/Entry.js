@@ -3,7 +3,16 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Entry({sendDataToParent}) {
+function Entry({sendDataToParent, sendSubmit}) {
+    const style1={
+      color: 'transparent', 
+      WebkitTextStroke: '2px #64748b', 
+    }
+    const style2={
+        WebkitTextStroke: '1px #64748b', 
+        animation: 'animate 6s ease-in-out infinite'
+    }
+
     const [journalText, setJournalText] = useState('');
 
     const handleTextareaClick = () => {
@@ -15,7 +24,10 @@ function Entry({sendDataToParent}) {
   return (
     <div> 
         <div className="flex flex-col h-min-full justify-center items-center">
-          <h1 className="text-slate-800 py-2 px-6">YOUR ENTRY</h1>
+        <div className="flex justify-center align-center mt-8">
+                <p className="text-5xl font-bold" style={style1}>ENTRY</p>
+                <p className="absolute text-5xl text-slate-500 font-bold" style={style2}>ENTRY</p>
+            </div>
           <textarea
               value={journalText}
               className=" flex font-mont w-full h-96 p-2 opacity-75 border border-gray-300 rounded focus:outline-none focus:border-blue-500 text-sm text-black"
@@ -29,7 +41,10 @@ function Entry({sendDataToParent}) {
             </Link>
             <button 
                   className="text-base m-6 font-mont relative mt-2 text-center bg-slate-100 text-slate-500 rounded-lg py-2 px-4 transform transition-transform duration-300 hover:hover:drop-shadow-xl hover:scale-105"
-                  onClick={() => sendDataToParent(journalText)}
+                  onClick={() => {
+                    sendDataToParent(journalText)
+                    sendSubmit(true)
+                  }}
               >
                   Submit
               </button>

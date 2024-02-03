@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       fontFamily: {
         righteous: ['Righteous', "sans-serif"],
-        mont: ['Montserrat', "sans-serif"]
+        mont: ['Montserrat', "sans-serif"],
+        protest: ['Protest Strike', "sans-serif"]
       
       }
     },

@@ -1,7 +1,6 @@
 from flask import Flask, jsonify
+import json
 import mysql.connector
-from database_utils import insert_data, eval_sentiment
-
 app = Flask(__name__)
 
 db = mysql.connector.connect(
@@ -11,13 +10,48 @@ db = mysql.connector.connect(
     database='JournifyDatabase'
     #Connection Name: devfest24-413221:us-central1:devfest24sql
 )
+cursor = connection.cursor()
 
+create_table_query = '''    
+    CREATE TABLE IF NOT EXISTS example (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255),
+        age INT
+)
+'''
+
+# Execute the query
+cursor.execute(create_table_query)
+
+try:
+    # Example data to insert (replace with your data)
+    data_to_insert = (99999, 'Sky', 19)#journal entry, emotion dicitonary
+
+    insert_query = 'INSERT INTO example_table (id, name, age) VALUES (%s, %s, %s)'
+
+    # Execute the query with the data
+    cursor.execute(insert_query, data_to_insert)
+
+    # Commit the changes
+    connection.commit()
+
+    print('Data inserted successfully!')
+except Exception as e:
+    print(f'Error: {str(e)}')
+finally:
+    # Close the cursor and connection
+    cursor.close()
+    connection.close()
+
+
+
+
+"""
 @app.route('/api/data', methods=['GET'])
 def add_data():
     try:
         # Assume you receive data in JSON format with a journal entry
-        data = request.json
-        journal_entry = data.get('journal_entry', '')
+        
         
         # Evaluate sentiment for the journal entry
         sentiment_result = eval_sentiment(journal_entry)
@@ -30,6 +64,8 @@ def add_data():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
@@ -40,3 +76,4 @@ class User(db.Model):
 
 if __name__ == '__main__':
     app.run(debug=True)
+    """
