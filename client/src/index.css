@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Eczar&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,400&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Eczar&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,400&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes animate 
+    {
+        0%, 100%
+        {
+            clip-path: polygon(0% 65%, 10% 74%, 29% 74%, 43% 71%, 62% 64%, 82% 60%, 96% 60%, 100% 63%, 100% 100%, 0% 99%);
+
+
+        }
+        50%
+        {
+            clip-path: polygon(0% 65%, 12% 56%, 26% 48%, 40% 50%, 51% 60%, 68% 72%, 87% 79%, 100% 73%, 100% 100%, 0% 99%);
+
+
+        }
+    }
+
+    @keyframes waveAnimation {
+        0%, 100% {
+          clip-path: polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%);
+        }
+        50% {
+          clip-path: polygon(0% 20%, 100% 80%, 100% 80%, 0% 20%);
+        }
+      }
+      
+      .wave {
+        animation: waveAnimation 2s ease-in-out infinite;
+      }
